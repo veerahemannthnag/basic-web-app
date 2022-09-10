@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta17
+kind: Config
+metadata:
+  name: cicd
+build:
+  artifacts:
+  - image: gcr.io/veerahemannthnag/pythonweb
+    docker:
+      dockerfile: ./Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - ./gke/deployment.yaml
